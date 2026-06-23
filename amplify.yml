@@ -1,0 +1,15 @@
+version: 1
+frontend:
+    phases: 
+        build:
+            commands:
+                - cd game-client
+                - mkdir build
+                - godot --headless --verbose --export-release "Web"
+    artifacts:
+        baseDirectory: game-client/build
+        files:
+            - '**/*'  
+    cache:
+        paths:
+            - node_modules/
