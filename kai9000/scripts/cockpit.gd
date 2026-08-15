@@ -17,6 +17,7 @@ var ollama_online := false
 var openai_key := ""
 
 func _ready() -> void:
+	layer = 10
 	_build_requests()
 	_build_shell()
 	_show_chat()
