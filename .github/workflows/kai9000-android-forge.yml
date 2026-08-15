@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
+      - main
       - kai9000-sanctuary-forge
     paths:
       - "kai9000/**"
