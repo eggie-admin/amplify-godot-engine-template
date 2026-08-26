@@ -9,6 +9,10 @@ on:
     paths:
       - "kai9000/**"
       - ".github/workflows/kai9000-android-forge.yml"
+  pull_request:
+    paths:
+      - "kai9000/**"
+      - ".github/workflows/kai9000-android-forge.yml"
 
 permissions:
   contents: read
@@ -26,6 +30,18 @@ jobs:
     steps:
       - name: Checkout forge branch
         uses: actions/checkout@v5
+
+      - name: Install Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Python 3 project preflight
+        shell: bash
+        run: |
+          set -euxo pipefail
+          python --version
+          python kai9000/tools/ci_preflight.py
 
       - name: Install Java 17
         uses: actions/setup-java@v4
@@ -97,5 +113,6 @@ jobs:
           path: |
             forge-output/kai9000-sanctuary-debug.apk
             forge-output/kai9000-sanctuary-debug.apk.sha256
+            forge-output/preflight.json
           if-no-files-found: error
           retention-days: 14
