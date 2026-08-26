@@ -1,3 +1,4 @@
 KAI 9000 Android forge trigger
 2026-08-26
 Lum rooted tablet APK rebuild via GitHub Actions + Python 3 preflight
+PR artifact build
