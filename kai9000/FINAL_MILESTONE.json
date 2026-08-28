@@ -1,0 +1,54 @@
+{
+  "schema": "pirate-daddy-film.kai9000/final-milestone-v3",
+  "status": "SEALED_FINAL_ARCHITECTURE_SKELETON",
+  "company": "Pirate Daddy Film",
+  "human_authority": "Big Daddy",
+  "lum": {
+    "role": "AI Devil Assistant",
+    "position": "identity/personality/memory above model providers",
+    "runtime": "OpenAI optional orchestration with Ollama local default"
+  },
+  "copilot": {
+    "role": "cute coding robot",
+    "function": "command-prompt and repo-work interface"
+  },
+  "stack": {
+    "android": "Samsung Android 16",
+    "runtime": "Termux",
+    "backend": "FastAPI/Uvicorn/Pydantic",
+    "local_ai": "Ollama",
+    "cloud_agent": "OpenAI Agents SDK optional",
+    "coding": ["Git", "GitHub", "GitHub Copilot", "Codex"],
+    "android_bridge": ["Shizuku", "Termux:API"],
+    "media": ["FFmpeg", "FFprobe", "Python automation"],
+    "visual_runtime": "Godot 4",
+    "three_d": ["GLB/glTF", "VRM", "Meshy optional"],
+    "image": "SDAI/FOSS optional"
+  },
+  "doctrine": {
+    "human_final_authority": true,
+    "agent_self_approval": false,
+    "auto_publish": false,
+    "auto_push_main": false,
+    "sandbox_first": true,
+    "secrets_in_source": false,
+    "privileged_android_actions_require_approval": true,
+    "external_network_exposure_requires_approval": true
+  },
+  "sandbox_root": "~/kai9000/sandbox",
+  "canonical_3d_interchange": "GLB/glTF",
+  "control_api": "127.0.0.1:8798",
+  "renderer_policy": {
+    "checked_in": "gl_compatibility",
+    "target": "Vulkan/mobile after benchmark gate",
+    "fallback": "gl_compatibility"
+  },
+  "mythic_map": {
+    "git": "The Warp",
+    "ubuntu": "The Altar",
+    "debian": "Old Magic",
+    "cloudflare": "Warp Tunnel",
+    "google_auth": "The Sentry",
+    "github": "The Key Master"
+  }
+}
