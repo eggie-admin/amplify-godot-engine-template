@@ -1,11 +1,12 @@
 [application]
-config/name="KAI 9000 Sanctuary"
-config/description="Professor-controlled Godot 4 AI sanctuary for Samsung Android 16"
+config/name="Pirate Daddy Film - KAI 9000 Cathedral"
+config/description="Big Daddy + Lum final sealed Godot 4 AI cathedral for Samsung Android 16"
 run/main_scene="res://main.tscn"
 
 [display]
 window/size/viewport_width=1080
 window/size/viewport_height=1920
+window/handheld/orientation=1
 window/stretch/mode="canvas_items"
 
 [rendering]
