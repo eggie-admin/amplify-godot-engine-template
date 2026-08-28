@@ -1,0 +1,43 @@
+{
+  "schema": "kai9000.agent-manifest.v1",
+  "name": "KAI 9000 Sanctuary",
+  "mode": "private-development",
+  "authority": {
+    "final_human_authority": "Professor",
+    "auto_publish": false,
+    "self_approval": false
+  },
+  "runtime": {
+    "engine": "Godot 4",
+    "renderer_preference": "mobile-vulkan",
+    "renderer_fallback": "gl_compatibility",
+    "inference_provider": "ollama",
+    "ollama_endpoint": "http://127.0.0.1:11434",
+    "default_model": "qwen3:0.6b",
+    "embedded_secrets": false
+  },
+  "hugging_face": {
+    "mode": "public-metadata-catalog-only",
+    "endpoint": "https://huggingface.co/api/models",
+    "requires_user_action": true,
+    "access_token_storage": false,
+    "auto_download": false,
+    "inference": false
+  },
+  "demo_assist": {
+    "enabled": true,
+    "foreign_code_execution": false,
+    "automatic_external_downloads": false
+  },
+  "plugins": {
+    "manifest_directory": "res://integrations",
+    "default_state": "disabled",
+    "user_supplied_assets_only": true
+  },
+  "distribution": {
+    "channel": "github-actions-artifact",
+    "fdroid_target": "manual-private-import",
+    "release_signing": "ephemeral-debug-for-current-private-build",
+    "official_fdroid_submission": false
+  }
+}

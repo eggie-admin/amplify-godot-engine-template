@@ -1,0 +1,40 @@
+{
+  "kind": "demo_plugin",
+  "schema": "kai9000.demo-plugin.v1",
+  "id": "fallout4_nexus_animation_physics_demo",
+  "name": "Fallout 4 / Nexus Animation + Physics Educational Adapter",
+  "enabled": false,
+  "educational_only": true,
+  "auto_download": false,
+  "network_access": false,
+  "execute_foreign_code": false,
+  "redistribute_assets": false,
+  "source_policy": "user_supplied_authorized_converted_assets_only",
+  "accepted_handoff_formats": [
+    "glb",
+    "gltf",
+    "json"
+  ],
+  "blocked_native_mod_formats": [
+    "esp",
+    "esm",
+    "ba2",
+    "nif",
+    "hkx",
+    "dll"
+  ],
+  "demo_capabilities": [
+    "skeleton_mapping_preview",
+    "animation_preview",
+    "physics_proxy_visualization",
+    "ragdoll_body_demo"
+  ],
+  "nexus": {
+    "site_reference_only": true,
+    "api_integration": false,
+    "credential_storage": false,
+    "scraping": false,
+    "automatic_install": false
+  },
+  "notes": "Dummy socket only. Convert or export assets you are authorized to use into GLB/GLTF plus JSON metadata before handing them to KAI. No Bethesda or Nexus-hosted assets are bundled."
+}

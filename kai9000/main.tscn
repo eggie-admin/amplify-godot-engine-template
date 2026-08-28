@@ -1,10 +1,24 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/cockpit.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/benchmark_wizard.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/demo_plugin_manager.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/hf_catalog.gd" id="5"]
 
 [node name="Sanctuary" type="Node3D"]
 script = ExtResource("1")
 
 [node name="Cockpit" type="CanvasLayer" parent="."]
 script = ExtResource("2")
+
+[node name="HFCatalog" type="CanvasLayer" parent="."]
+layer = 15
+script = ExtResource("5")
+
+[node name="BenchmarkWizard" type="CanvasLayer" parent="."]
+layer = 20
+script = ExtResource("3")
+
+[node name="DemoPluginManager" type="Node" parent="."]
+script = ExtResource("4")
