@@ -5,6 +5,10 @@ const OLLAMA_MODEL := "qwen3:0.6b"
 const OPENAI_URL := "https://api.openai.com/v1/responses"
 const OPENAI_MODEL := "gpt-5.6"
 
+# Base64-encoded JSON session manifest emitted by ci_preflight.py at build time.
+# Decode with Marshalls.base64_to_raw() + bytes_to_var() or JSON.parse_string().
+const SESSION_MANIFEST_B64 := "eyJwcm9qZWN0IjoiS0FJIDkwMDAgU2FuY3R1YXJ5IC8gTHVtIiwicGFja2FnZSI6ImNvbS5lZ2dpZS5rYWk5MDAwc2FuY3R1YXJ5IiwiYXJjaCI6ImFybTY0LXY4YSIsInZlcnNpb25fbmFtZSI6IjAuMy4wLXNtLXg0MDAiLCJ2ZXJzaW9uX2NvZGUiOiIzIiwib3JpZW50YXRpb24iOiJsYW5kc2NhcGUiLCJyZW5kZXJlciI6ImdsX2NvbXBhdGliaWxpdHkiLCJvcGVuYWlfbW9kZWwiOiJncHQtNS42Iiwib2xsYW1hX21vZGVsIjoicXdlbjM6MC42YiIsIm9sbGFtYV9lbmRwb2ludCI6Imh0dHA6Ly8xMjcuMC4wLjE6MTE0MzQiLCJhdXRob3JpdHkiOiJodW1hbi1maW5hbCIsImF1dG9fcHVibGlzaCI6ZmFsc2V9"
+
 var body: VBoxContainer
 var status_strip: Label
 var output: RichTextLabel
@@ -15,13 +19,36 @@ var openai_chat: HTTPRequest
 var provider := "OLLAMA"
 var ollama_online := false
 var openai_key := ""
+var _lum_instructions := "You are Lum inside KAI 9000. Human operator has final authority. Never auto-publish. Be concise and practical."
 
 func _ready() -> void:
 	layer = 10
+	_load_manifest()
 	_build_requests()
 	_build_shell()
 	_show_chat()
 	_check_ollama()
+
+func _load_manifest() -> void:
+	var raw := Marshalls.base64_to_raw(SESSION_MANIFEST_B64)
+	if raw.is_empty():
+		return
+	var manifest = JSON.parse_string(raw.get_string_from_utf8())
+	if not (manifest is Dictionary):
+		return
+	var project: String = manifest.get("project", "KAI 9000 Sanctuary / Lum")
+	var arch: String = manifest.get("arch", "arm64-v8a")
+	var version: String = manifest.get("version_name", "")
+	var orientation: String = manifest.get("orientation", "landscape")
+	var renderer: String = manifest.get("renderer", "gl_compatibility")
+	var authority: String = manifest.get("authority", "human-final")
+	_lum_instructions = (
+		"You are Lum, the AI executive assistant inside %s. "
+		"Runtime: Godot 4 / Android / %s / %s / orientation=%s / renderer=%s. "
+		"Version: %s. Authority model: %s. "
+		"Never auto-publish, never store API keys, be concise and practical. "
+		"The human operator has final authority on all decisions."
+	) % [project, arch, "Samsung SM-X400", orientation, renderer, version, authority]
 
 func _build_requests() -> void:
 	ollama_health = HTTPRequest.new()
@@ -207,7 +234,7 @@ func _send_openai(text: String) -> void:
 	if openai_key.is_empty():
 		if is_instance_valid(output): output.text = "[b]Lum:[/b] Load an OpenAI API key in CMS for this session, or switch back to Ollama."
 		return
-	var payload := JSON.stringify({"model": OPENAI_MODEL, "instructions": "You are Lum inside KAI 9000. Human operator has final authority. Never auto-publish. Be concise and practical.", "input": text})
+	var payload := JSON.stringify({"model": OPENAI_MODEL, "instructions": _lum_instructions, "input": text})
 	var headers := ["Content-Type: application/json", "Authorization: Bearer " + openai_key]
 	var err := openai_chat.request(OPENAI_URL, headers, HTTPClient.METHOD_POST, payload)
 	if err != OK and is_instance_valid(output): output.text = "[b]Lum:[/b] OpenAI request could not start."

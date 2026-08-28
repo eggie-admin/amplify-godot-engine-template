@@ -1,0 +1,17 @@
+{
+  "status": "green",
+  "python": "3.12.3",
+  "runner": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "project": "KAI 9000 Sanctuary / Lum",
+  "package": "com.eggie.kai9000sanctuary",
+  "arch": "arm64-v8a",
+  "version_name": "0.3.0-sm-x400",
+  "version_code": "3",
+  "orientation": "landscape",
+  "renderer": "gl_compatibility",
+  "openai_model": "gpt-5.6",
+  "ollama_model": "qwen3:0.6b",
+  "ollama_endpoint": "http://127.0.0.1:11434",
+  "authority": "human-final",
+  "auto_publish": false
+}

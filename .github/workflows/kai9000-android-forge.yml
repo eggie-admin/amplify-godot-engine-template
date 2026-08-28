@@ -114,5 +114,6 @@ jobs:
             forge-output/kai9000-sanctuary-debug.apk
             forge-output/kai9000-sanctuary-debug.apk.sha256
             forge-output/preflight.json
+            forge-output/manifest.b64
           if-no-files-found: error
           retention-days: 14
