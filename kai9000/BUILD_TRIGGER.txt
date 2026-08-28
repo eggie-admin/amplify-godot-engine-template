@@ -1,4 +1,3 @@
 KAI 9000 Android forge trigger
-2026-08-26
-Lum rooted tablet APK rebuild via GitHub Actions + Python 3 preflight
-PR artifact build
+2026-08-28
+Samsung SM-X400 (Galaxy Tab A8) APK build - arm64-v8a landscape
