@@ -1,8 +1,16 @@
 # KAI 9000 JRPG + Dating Sim Lane
 
+## Project identity
+
+Canonical OS branch: `LuHm-OS`
+
+**L.u.H.m.** = **Linux / Unix approach Hydra manifest**
+
+Working title: **KAI 9000**
+
 ## Branch flow
 
-`main` <- `proposed/jrpg-dating-sim` <- `testing/jrpg-dating-sim`
+`LuHm-OS` <- `proposed/jrpg-dating-sim` <- `testing/jrpg-dating-sim`
 
 ## Testing lane
 
@@ -12,7 +20,7 @@ Testing may contain incomplete or disposable work. Upstream frameworks are treat
 
 ## Proposed lane
 
-Only changes that pass the testing gate are promoted here. Proposed is the review candidate for eventual integration into `main` and must remain runnable and reversible.
+Only changes that pass the testing gate are promoted here. Proposed is the review candidate for eventual integration into `LuHm-OS` and must remain runnable and reversible.
 
 ## Promotion gate
 
@@ -41,4 +49,4 @@ A change may move from testing to proposed only when:
 
 Experiment in `testing/jrpg-dating-sim`.
 Promote by pull request into `proposed/jrpg-dating-sim`.
-Only promote proposed work to `main` after a separate review pass.
+Only promote proposed work to `LuHm-OS` after a separate review pass.
