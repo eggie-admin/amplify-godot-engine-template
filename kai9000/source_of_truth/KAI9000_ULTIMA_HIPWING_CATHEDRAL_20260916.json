@@ -1,0 +1,55 @@
+{
+  "schema": "kai9000.source_of_truth.v1",
+  "milestone": "KAI9000_ULTIMA_HIPWING_CATHEDRAL_20260916",
+  "status": "PUSHED_AWAITING_CI",
+  "branch": "ultima/godot4-hipwing-cathedral-20260916",
+  "base": "LuHm-OS",
+  "scope": [
+    "Move procedural Lum devil wings from shoulder/back placement to outer hip/pelvis placement at runtime",
+    "Add original zero-external-asset procedural cathedral nave",
+    "Add LuHm-owned gacha/reward shrine runtime",
+    "Persist deterministic seed, sparks, pity counter and unlocked LuHm-owned rewards",
+    "Keep third-party/private reference assets outside public runtime"
+  ],
+  "owned_code": [
+    "kai9000/scripts/ultima_cathedral_runtime.gd",
+    "kai9000/main.tscn integration"
+  ],
+  "runtime_state": {
+    "save_path": "user://kai9000_cathedral_state.json",
+    "default_seed": 9000,
+    "default_sparks": 500,
+    "pull_cost": 100,
+    "pity_limit": 10,
+    "rights_lane": "LUHM_ORIGINAL_ONLY"
+  },
+  "community_architecture_references": [
+    {
+      "repo": "eggie-admin/godot_2D_procedural_dungeon_gen",
+      "upstream": "loothammer/godot_2D_procedural_dungeon_gen",
+      "use": "Godot 4 procedural dungeon architecture reference only",
+      "copied_code": false,
+      "license_gate": "verify standalone license before vendoring"
+    },
+    {
+      "repo": "eggie-admin/godot-procedural3d",
+      "upstream": "RodZill4/godot-procedural3d",
+      "use": "legacy modular room/exit/object grammar reference only",
+      "copied_code": false,
+      "license": "MIT",
+      "port_rule": "clean Godot 4 reimplementation only"
+    }
+  ],
+  "private_reference_rule": {
+    "destiny_child": "THIRD_PARTY_PRIVATE_REFERENCE",
+    "public_safe": false,
+    "packaged_in_runtime": false,
+    "rule": "Never publish or commit proprietary game rips/mod assets into LuHm/KAI public source or APK artifacts."
+  },
+  "chrome_rule": "Chrome Dev and Chrome Canary remain behavior/test harnesses only; no donor code ingestion.",
+  "ci_gate": {
+    "workflow": ".github/workflows/kai9000-android-forge.yml",
+    "expected": "PR build must pass before final runtime-green seal",
+    "physical_device_validation": "still required after CI"
+  }
+}
