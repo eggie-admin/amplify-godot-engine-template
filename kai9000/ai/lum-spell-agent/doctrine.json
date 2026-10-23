@@ -1,0 +1,113 @@
+{
+  "schema": "kai-mage-doctrine/0.1",
+  "name": "KAI MAGE Spell Doctrine",
+  "project": {
+    "os": "LuHm OS",
+    "acronym": "Linux / Unix approach Hydra manifest",
+    "working_title": "KAI 9000"
+  },
+  "promotion": {
+    "testing": "testing/jrpg-dating-sim",
+    "proposed": "proposed/jrpg-dating-sim",
+    "canonical": "LuHm-OS",
+    "rule": "No spell bypasses testing, review, or promotion gates."
+  },
+  "rss": {
+    "default_url": "https://finalfantasywiki.com/wiki/Special:RecentChanges?feed=rss",
+    "allowed_hosts": ["finalfantasywiki.com"],
+    "ingest_fields": ["title", "link", "published", "creator", "summary_excerpt"],
+    "max_items": 10,
+    "max_summary_chars": 280,
+    "article_body_ingest": false
+  },
+  "aliases": {
+    "LIBRA": "SCAN",
+    "DISPEL": "ESUNA"
+  },
+  "spells": {
+    "SCAN": {
+      "intent": "inspect",
+      "risk": "read_only",
+      "approval": "none",
+      "apply": false,
+      "description": "Inspect code, state, logs, docs, or metadata without changing anything."
+    },
+    "REFLECT": {
+      "intent": "review",
+      "risk": "read_only",
+      "approval": "none",
+      "apply": false,
+      "description": "Explain or review a proposed change before any mutation."
+    },
+    "CURE": {
+      "intent": "repair",
+      "risk": "scoped_write",
+      "approval": "required_for_apply",
+      "apply": false,
+      "description": "Prepare a minimal targeted repair for a known defect."
+    },
+    "ESUNA": {
+      "intent": "clean",
+      "risk": "scoped_write",
+      "approval": "required_for_apply",
+      "apply": false,
+      "description": "Remove stale, invalid, deprecated, or unhealthy configuration while preserving behavior."
+    },
+    "PROTECT": {
+      "intent": "guard",
+      "risk": "scoped_write",
+      "approval": "required_for_apply",
+      "apply": false,
+      "description": "Add validation, guardrails, bounds, or safer defaults."
+    },
+    "SHELL": {
+      "intent": "harden",
+      "risk": "scoped_write",
+      "approval": "required_for_apply",
+      "apply": false,
+      "description": "Harden trust boundaries, secrets handling, permissions, or network exposure."
+    },
+    "HASTE": {
+      "intent": "optimize",
+      "risk": "scoped_write",
+      "approval": "required_for_apply",
+      "apply": false,
+      "description": "Optimize an existing path without changing its public contract."
+    },
+    "SLOW": {
+      "intent": "throttle",
+      "risk": "scoped_write",
+      "approval": "required_for_apply",
+      "apply": false,
+      "description": "Add throttling, backoff, debounce, or rate controls."
+    },
+    "REGEN": {
+      "intent": "stabilize",
+      "risk": "scoped_write",
+      "approval": "required_for_apply",
+      "apply": false,
+      "description": "Plan a repeatable health, retry, or self-recovery mechanism."
+    },
+    "PHOENIX": {
+      "intent": "rollback",
+      "risk": "high",
+      "approval": "explicit_required",
+      "apply": false,
+      "description": "Restore from a known checkpoint or revert a bounded failed mutation."
+    },
+    "METEOR": {
+      "intent": "batch_plan",
+      "risk": "high",
+      "approval": "proposal_only",
+      "apply": false,
+      "description": "Prepare a broad multi-file mutation plan. Never auto-apply."
+    },
+    "ULTIMA": {
+      "intent": "integration_proposal",
+      "risk": "high",
+      "approval": "proposal_only",
+      "apply": false,
+      "description": "Prepare a final integration candidate or pull request plan. Never merge directly."
+    }
+  }
+}
